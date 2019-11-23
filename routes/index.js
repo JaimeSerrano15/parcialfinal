@@ -7,11 +7,11 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/crear', function(req,res,next){
+router.get('/crear/', function(req,res,next){
   res.render('crear');
 })
 
-router.post('/crear', function(req,res,next){
+router.post('/crear/', function(req,res,next){
   if(req.body.flex == 'on'){
     let rod = {
       name: req.body.name,
@@ -45,13 +45,13 @@ router.post('/crear', function(req,res,next){
 
 })
 
-router.get('/borrar', function(req,res,next){
+router.get('/borrar/', function(req,res,next){
   axios.get('/rods/').then(ros =>{
     res.render('borrar', {op: ros.data});
   })
 })
 
-router.post('/borrar', function(req,res,next){
+router.post('/borrar/', function(req,res,next){
   var sel = req.body.selec;
   axios.delete(`/rods/${sel}`).then(ros=>{
     axios.get('/rods/').then(ras =>{
@@ -66,7 +66,7 @@ router.get('/editar', function(req,res,next){
   })
 })
 
-router.post('/editar', function(req,res,next){
+router.post('/editar/', function(req,res,next){
   
     if(req.body.flexu == "on"){
       var toup = {
@@ -100,13 +100,13 @@ router.post('/editar', function(req,res,next){
     }
   })
 
-router.get('/uno', function(req,res,next){
+router.get('/uno/', function(req,res,next){
   axios.get('/rods/').then(ros =>{
     res.render('uno', {op: ros.data, exists:null});
   })
 })
 
-router.post('/uno', function(req,res,next){
+router.post('/uno/', function(req,res,next){
   var search = req.body.search;
   axios.get(`/rods/${search}`).then(ros =>{
     var nice = ros.data;
@@ -116,7 +116,7 @@ router.post('/uno', function(req,res,next){
   })
 })
 
-router.get('/todo', function(req,res,next){
+router.get('/todo/', function(req,res,next){
   var query = null;
   axios.get('/rods/').then(ros =>{
     //console.log(res.data.name);
