@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h2 Elimine una Varita Mágica
+  p Seleccione la varita mágica que deses borrar
+  div(class="del")
+    form(method="POST")
+        select(name="selec" class="seldel")
+            for rod in op
+                option(value=rod.name)= rod.name
+        br
+        button(type="submit") Borrar
+  a(href="/") Regresar

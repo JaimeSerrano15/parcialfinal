@@ -1,0 +1,25 @@
+extends layout
+
+block uno
+  h2 Buscar una vara en específico
+  p Ingrese el nombre de la vara a buscar
+  form(method="POST")
+    label(for="search") Nombre: 
+    select(name="search")
+        for rod in op
+            option(value=rod.name)= rod.name
+    button(type='submit') Buscar
+  br
+  if(exists)
+    div(class="oneshow")
+        p= "Nombre de la vara: " + exists.name
+        ul(class="una")
+            li= exists.wood
+            li= exists.core
+            li= exists.long + " cm"
+            if(exists.flex == true)
+                li Flexible
+            else
+            li No es flexible
+  a(href="/") Regresar
+  

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h2 Edite la información de una Varita Mágica
+  p Seleccione la varita que será editada
+  form(method="POST")
+    select(name="selec"  class="seled")
+        for rod in op
+            option(value=rod.name)= rod.name
+    br
+    p Ingrese los nuevos datos
+    label(for="wood") Tipo de madera: 
+    input(type="text" name="woodu" required id="w")
+    br
+    br
+    label(for="core") Núcleo de la varita:
+    input(type="text" name="coreu" required id="c")
+    br
+    br
+    label(for="long") Largo de la varita:
+    input(type="number" name="longu" required id="l" min="20" max="38")
+    br
+    br
+    label(for="flex") ¿Es flexible?
+    input(type="checkbox" name="flexu" id="f")
+    br
+    br
+    button(type="submit") Guardar cambios
+  
+  a(href="/") Regresar

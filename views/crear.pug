@@ -1,0 +1,27 @@
+extends layout
+
+block create
+  h2 Crea una Varita
+  form(method="POST")
+    label(for="name") Nombre de la vara:
+    input(type="text" name="name" required id="n" placeholder="Un nombre mágico")
+    br
+    br
+    label(for="wood") Tipo de madera: 
+    input(type="text" name="wood" required id="w" placeholder="Madera poderosa")
+    br
+    br
+    label(for="core") Núcleo de la varita:
+    input(type="text" name="core" required id="c" placeholder="Nucleo fantástico")
+    br
+    br
+    label(for="long") Largo de la varita:
+    input(type="number" name="long" required id="l" placeholder="Largo" min="20" max="38") 
+    br
+    br
+    label(for="flex") ¿Es flexible?
+    input(type="checkbox" name="flex" id="f")
+    br
+    br
+    button(type="submit" ) Crear
+  a(href="/") Regresar

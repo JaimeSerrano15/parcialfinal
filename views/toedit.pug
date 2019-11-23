@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h2 ¡Comencemos a editar!
+  p Datos antiguos
+  p= "Nombre de la vara: " + edit.name
+  ul
+  li= edit.wood
+  li= edit.core
+  li= edit.long
+  if(edit.flex == true)
+    li Flexible
+  else
+    li No es flexible
+    p Ingrese los nuevos datos
+    form(method="POST")
+    label(for="name") Nombre de la vara:
+    input(type="text" value=edit.name name='nameu' disabled id="n")
+    br
+    br
+    label(for="wood") Tipo de madera: 
+    input(type="text" name="woodu" required id="w")
+    br
+    br
+    label(for="core") Núcleo de la varita:
+    input(type="text" name="coreu" required id="c")
+    br
+    br
+    label(for="long") Largo de la varita:
+    input(type="number" name="longu" required id="l" min="20" max="38")
+    br
+    br
+    label(for="flex") ¿Es flexible?
+    input(type="checkbox" name="flexu" id="f")
+    br
+    br
+    button(type="submit") Guardar cambios
